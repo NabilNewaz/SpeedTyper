@@ -32,6 +32,22 @@ body {
   padding: 30px 20px 30px 20px;
 }
 
+.blog-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 25px;
+  border-radius: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(92.49deg,
+      rgba(255, 255, 255, 0.1) 0.18%,
+      rgba(255, 255, 255, 0.05) 99.85%);
+  backdrop-filter: blur(5px);
+  margin-bottom: 30px;
+  padding: 30px 20px 30px 20px;
+}
+
 #display {
   height: 100px;
   display: flex;
@@ -139,7 +155,7 @@ body {
   justify-content: center;
 }
 
-.blg-btn {
+.nav-btn {
   position: absolute;
   right: 15%;
   text-decoration: none;
@@ -151,7 +167,7 @@ body {
   border-radius: 10px;
   border: 2px solid #9dffad;
   transform: translateY(-50%);
-  margin-top: 2%;
+  margin-top: 2.5%;
 }
 
 button {
@@ -174,7 +190,7 @@ button {
   grid-template-columns: auto auto auto;
   column-gap: 15px;
   row-gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -210,6 +226,41 @@ button {
   top: 0;
 }
 
+/* Article Page Styles  */
+#articles article {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 30px;
+  color: white;
+  border-radius: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(92.49deg,
+      rgba(255, 255, 255, 0.1) 0.18%,
+      rgba(255, 255, 255, 0.05) 99.85%);
+  backdrop-filter: blur(5px);
+  margin-bottom: 15px;
+  border: 1px solid #9dffad;
+}
+
+#articles article h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+#articles article p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+#articles article b {
+  color: #9dffad;
+}
+
 @media only screen and (max-width: 700px) {
   .box-container {
     padding: 0 20px;
@@ -240,18 +291,24 @@ button {
   .card {
     flex-direction: column;
   }
+
+  #articles article h2 {
+    text-align: start;
+  }
+
+  #articles article {
+    padding: 20px 20px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 
   #histories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    grid-template-columns: auto auto;
   }
 
-  .blg-btn {
-    margin-top: 5%;
+  .nav-btn {
+    margin-top: 5.5%;
   }
 
 }
