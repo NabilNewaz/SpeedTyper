@@ -1,4 +1,5 @@
 const histories = document.getElementById("histories");
+const nohistories = document.getElementById("noHistories");
 
 function addHistory(questionText, timeTaken, errorCount, net_WPM) {
   const newRow = document.createElement("div");
@@ -25,12 +26,16 @@ function addHistory(questionText, timeTaken, errorCount, net_WPM) {
 function displayHistory() {
   histories.innerHTML = "";
   const previousTests = JSON.parse(localStorage.getItem("testHistory")) || [];
+  if (previousTests.length == 0) {
+    nohistories.innerHTML = `No Previous Histories`;
+  }
+  else {
+    nohistories.style.display = "none";
+    previousTests.forEach((test) => {
+      const newRow = document.createElement("div");
+      newRow.classList.add("card");
 
-  previousTests.forEach((test) => {
-    const newRow = document.createElement("div");
-    newRow.classList.add("card");
-
-    newRow.innerHTML = `
+      newRow.innerHTML = `
   <h3>${test.questionText}</h3>
   <div class="card-result">
   <p>You took: <span class="bold">${test.timeTaken}</span> seconds</p>
@@ -38,7 +43,7 @@ function displayHistory() {
     <p>Your Typing Speed: <span class="bold ${test.net_WPM < 40 ? 'red' : test.net_WPM < 55 && test.net_WPM >= 40 ? 'yellow' : 'green'}">${test.net_WPM}</span> WPM</p>
   </div>
   `;
-
-    histories.appendChild(newRow);
-  });
+      histories.appendChild(newRow);
+    });
+  }
 }

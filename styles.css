@@ -234,6 +234,13 @@ button {
   top: 0;
 }
 
+.no-histories {
+  color: rgb(133, 133, 133);
+  font-size: 22px;
+  text-align: center;
+  margin-top: 5%;
+}
+
 /* Article Page Styles  */
 #articles {
   margin-bottom: 30px;
