@@ -40,7 +40,7 @@ function displayHistory() {
   <div class="card-result">
   <p>You took: <span class="bold">${test.timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${test.errorCount}</span> mistakes</p>
-    <p>Your Typing Speed: <span class="bold ${test.net_WPM < 40 ? 'red' : test.net_WPM < 55 && test.net_WPM >= 40 ? 'yellow' : 'green'}">${test.net_WPM}</span> WPM</p>
+    <p>Your Typing Speed: <span class="bold ${test.net_WPM < 40 ? 'red' : test.net_WPM < 55 && test.net_WPM >= 40 ? 'yellow' : 'green'}">${test.net_WPM <= 0 ? 0 : test.net_WPM}</span> WPM</p>
   </div>
   `;
       histories.appendChild(newRow);

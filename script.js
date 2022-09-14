@@ -90,7 +90,7 @@ const gameOver = () => {
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
-    <p>Your Typing Speed: <span class="bold ${net_WPM < 40 ? 'red' : net_WPM < 55 && net_WPM >= 40 ? 'yellow' : 'green'}">${net_WPM}</span> WPM</p>
+    <p>Your Typing Speed: <span class="bold ${net_WPM < 40 ? 'red' : net_WPM < 55 && net_WPM >= 40 ? 'yellow' : 'green'}">${net_WPM <= 0 ? 0 : net_WPM}</span> WPM</p>
     <button onclick="closeModal()">Close</button>
   `;
 
