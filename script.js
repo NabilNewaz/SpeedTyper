@@ -14,12 +14,15 @@ let questionText = "";
 let net_WPM = 0;
 
 // Load and display question
-fetch("./texts.json")
-  .then((res) => res.json())
-  .then((data) => {
-    questionText = data[Math.floor(Math.random() * data.length)];
-    question.innerHTML = questionText;
-  });
+const fetchData = () => {
+  fetch("./texts.json")
+    .then((res) => res.json())
+    .then((data) => {
+      questionText = data[Math.floor(Math.random() * data.length)];
+      question.innerHTML = questionText;
+    });
+}
+fetchData();
 
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
@@ -101,6 +104,7 @@ const gameOver = () => {
   errorCount = 0;
   userText = "";
   display.classList.add("inactive");
+  fetchData();
 };
 
 const closeModal = () => {
