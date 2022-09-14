@@ -4,12 +4,14 @@ const startBtn = document.getElementById("starts");
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
+const placeholdertext = document.getElementById("placeHolderText");
 
 // variables
 let userText = "";
 let errorCount = 0;
 let startTime;
 let questionText = "";
+let net_WPM = 0;
 
 // Load and display question
 fetch("./texts.json")
@@ -22,6 +24,7 @@ fetch("./texts.json")
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
+  placeholdertext.style.display = "none";
 
   // Handle backspace press
   if (newLetter == "Backspace") {
@@ -78,15 +81,20 @@ const gameOver = () => {
   display.innerHTML = "";
   // make it inactive
   display.classList.add("inactive");
+
+  //Net_WPM Calculation
+  net_WPM = Math.floor((((userText.length / 5) - errorCount) / timeTaken) * 60);
+
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your Typing Speed: <span class="bold ${net_WPM < 40 ? 'red' : net_WPM < 55 && net_WPM >= 40 ? 'yellow' : 'green'}">${net_WPM}</span> WPM</p>
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, timeTaken, errorCount, net_WPM);
 
   // restart everything
   startTime = null;

@@ -91,6 +91,10 @@ body {
   padding: 2rem;
 }
 
+#placeHolderText {
+  color: #686868e7;
+}
+
 #show-time {
   text-align: center;
   color: white;
@@ -103,6 +107,10 @@ body {
 
 .red {
   color: #eb6565;
+}
+
+.yellow {
+  color: #f7d259;
 }
 
 .bold {
@@ -187,7 +195,7 @@ button {
 
 #histories {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 15px;
   row-gap: 15px;
   margin-bottom: 30px;
@@ -324,7 +332,7 @@ button {
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 
   #histories {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
   }
 
   .nav-btn {
